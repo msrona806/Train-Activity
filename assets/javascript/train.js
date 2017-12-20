@@ -26,13 +26,12 @@ database.ref("/trainData").on("child_added", function (snap) {
   //add in table data
   $("<td>").text(snap.val().trainName).appendTo(tr);
   $("<td>").text(snap.val().destination).appendTo(tr);
-  $("<td>").text(frequency).appendTo(tr);
+  $("<td>").text(snap.val().frequency).appendTo(tr);
   $("<td>").text(moment(snap.val().firstTrain).format("HH:mm")).appendTo(tr);
   $("<td>").text(parseInt(snap.val().minutesAway)).appendTo(tr);
 
   $(tr).appendTo("#schedules");
 });  
-
 
 // button function for adding a train location
 // information entered in text box will be displayed in the train schedule
@@ -42,16 +41,17 @@ $("#add-destination").on("click", function(event) {
   // add train input
   var trainName = $("#name-input").val().trim();
   var destination = $("#destination-input").val().trim();
-  var firstTrain = "";
-  var frequency = "";
+  var firstTrain = $("#time-input").val().trim();
+  var frequency = $("#frequency-input").val().trim();
 
   console.log(trainName);
   
   // code to upload information to firebase
   database.ref("/trainData").push({
     "name": trainName,
-    "destination": destination
-
+    "destination": destination,
+    "First Train": firstTrain,
+    "Frequency": frequency
   });
 
 

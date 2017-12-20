@@ -16,32 +16,28 @@ $(document).ready(function() {
   var database = firebase.database();
 
 // button function for adding a train location
+// information entered in text box will be displayed in the train schedule
 $("#add-destination").on("click", function(event) {
   event.preventDefault(); // prevents page from reloading everytime button is clicked.
 
-// Initial values for add train input
-var trainName = "";
-var destination = "";
-var firstTrain = "";
-var frequency = "";
+  // add train input
+  var trainName = $("#name-input").val().trim();
+  var destination = "";
+  var firstTrain = "";
+  var frequency = "";
 
-// Button click code. information entered in text box will be displayed in the time schedule
+  // local temp object to hold input data
+  var newTrain = {
+    name: trainName,
+  };
 
+  // code to upload information to firebase
+  database.ref().push();
 
-  //code to prevent page from refreshing
-  event.preventDefault();
+  console.log(trainName);
 
-
-  //logic for storing and retrieving data
-  trainName = $("#name-input").val().trim();
-
-});
-
-//code to link information to firebase
-database.ref().set({
+  // panel to hold retrieved data
 
 
   });
 });
-console.log(trainName);
-  //panel to hold retrieved data

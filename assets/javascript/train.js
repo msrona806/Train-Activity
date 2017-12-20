@@ -1,3 +1,6 @@
+// code to make script run once page is ready
+$(document).ready(function() {
+
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDbq0Z4XLhY1Wy3axqEHKOVeJDarBJTUUc",
@@ -12,6 +15,10 @@
 // Create a variable to reference the database
   var database = firebase.database();
 
+// button function for adding a train location
+$("#add-destination").on("click", function(event) {
+  event.preventDefault(); // prevents page from reloading everytime button is clicked.
+
 // Initial values for add train input
 var trainName = "";
 var destination = "";
@@ -19,7 +26,7 @@ var firstTrain = "";
 var frequency = "";
 
 // Button click code. information entered in text box will be displayed in the time schedule
-$("#add-destination").click(function() {
+
 
   //code to prevent page from refreshing
   event.preventDefault();
@@ -34,6 +41,7 @@ $("#add-destination").click(function() {
 database.ref().set({
 
 
+  });
 });
 console.log(trainName);
   //panel to hold retrieved data

@@ -15,7 +15,17 @@ $(document).ready(function() {
 // Create a variable to reference the database
   var database = firebase.database();
 
-// button function for adding a train location
+// make a table in firebase when new data is added
+database.ref("/trainData").on("child_added", function (snap) {
+  
+}
+
+
+
+
+
+
+  // button function for adding a train location
 // information entered in text box will be displayed in the train schedule
 $("#add-destination").on("click", function(event) {
   event.preventDefault(); // prevents page from reloading everytime button is clicked.
@@ -26,11 +36,7 @@ $("#add-destination").on("click", function(event) {
   var firstTrain = "";
   var frequency = "";
 
-  // local temp object to hold input data
-  var newTrain = {
-    name: trainName,
-  };
-
+  
   // code to upload information to firebase
   database.ref().push();
 

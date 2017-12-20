@@ -1,6 +1,11 @@
 body {
   background-image: url("../images/Map.jpg");
 }
+
 .jumbotron {
   text-align: center;
+}
+
+th {
+  font-weight: bold;
 }

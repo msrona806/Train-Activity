@@ -31,6 +31,10 @@ database.ref("/trainData").on("child_added", function (snap) {
   $("<td>").text(parseInt(snap.val().minutesAway)).appendTo(tr);
 
   $(tr).appendTo("#schedules");
+  // minutes away code
+  var minutesAway = moments().diff
+
+  // first train code
 });  
 
 // button function for adding a train location
@@ -53,8 +57,6 @@ $("#add-destination").on("click", function(event) {
     "First Train": firstTrain,
     "Frequency": frequency
   });
-
-
 
   });
 });

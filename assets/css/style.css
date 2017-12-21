@@ -10,3 +10,12 @@ body {
 th {
   font-weight: bold;
 }
+
+label {
+  font-size: 14pt;
+}
+
+table {
+  font-size: 14pt;
+  text-align: left;
+}

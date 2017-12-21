@@ -62,13 +62,38 @@ $("#add-destination").on("click", function(event) {
 
   
   // time calculations
-  var firstTrainConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
+  // var firstTrainConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
+  var firstTrainConverted = moment(firstTrain, "hh:mm");
   console.log(firstTrainConverted);
+
   var currentTime = moment();
+  console.log("current time");
+  console.log(currentTime);
   
   // minutes away code
+  // calculate difference between current time and firstTrain time
+  var diffTimeInMinutes = currentTime.diff(firstTrainConverted, "minutes");
+  console.log("difference");
+  console.log(diffTimeInMinutes); 
 
+  // find 60 minutes remaining to reach 725 min (725 % 60 = 5) 
+  var frequencyRemainingMinutes = diffTimeInMinutes % frequency;
+  console.log("frequency in min");
+  console.log(frequencyRemainingMinutes);
+
+  // next arrival time is current time + (frequency - remaining minutes)
+  var nextArrivalTime = currentTime.add((frequency - frequencyRemainingMinutes), "minutes");
+  console.log("next arrival");
+  console.log(nextArrivalTime.format("hh:mm"));
 
   // first train code
   });
 });
+//
+
+
+//08:00 frequency=60min
+//20:05
+
+//  20:05 - 08:00 = 12:05 (725min)
+

@@ -86,14 +86,9 @@ $("#add-destination").on("click", function(event) {
   console.log("next arrival");
   console.log(nextArrivalTime.format("hh:mm"));
 
-  // first train code
-  });
+  // $("#schedules > tbody" ).append("<tr><td>" + nameInput + "</td><td>" + nextArrivalTime + "</td></tr>");
+
 });
-//
+});
 
-
-//08:00 frequency=60min
-//20:05
-
-//  20:05 - 08:00 = 12:05 (725min)
 

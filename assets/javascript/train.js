@@ -24,17 +24,13 @@ database.ref("/trainData").on("child_added", function (snap) {
   var tr = $("<tr>");
 
   //add in table data
-  $("<td>").text(snap.val().trainName).appendTo(tr);
+  $("<td>").text(snap.val().name).appendTo(tr);
   $("<td>").text(snap.val().destination).appendTo(tr);
-  $("<td>").text(snap.val().frequency).appendTo(tr);
+  $("<td>").text(snap.val().Frequency).appendTo(tr);
   $("<td>").text(moment(snap.val().firstTrain).format("HH:mm")).appendTo(tr);
   $("<td>").text(parseInt(snap.val().minutesAway)).appendTo(tr);
 
   $(tr).appendTo("#schedules");
-  // minutes away code
-  var minutesAway = moments().diff
-
-  // first train code
 });  
 
 // button function for adding a train location
@@ -58,5 +54,21 @@ $("#add-destination").on("click", function(event) {
     "Frequency": frequency
   });
 
+  // code to empty text fields when add button is clicked
+  $("#name-input").val("");
+  $("#destination-input").val("");
+  $("#time-input").val("");
+  $("#frequency-input").val("");
+
+  
+  // time calculations
+  var firstTrainConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
+  console.log(firstTrainConverted);
+  var currentTime = moment();
+  
+  // minutes away code
+
+
+  // first train code
   });
 });

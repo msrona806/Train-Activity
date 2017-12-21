@@ -1,7 +1,7 @@
 // code to make script run once page is ready
 $(document).ready(function() {
 
-// Initialize Firebase
+  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDbq0Z4XLhY1Wy3axqEHKOVeJDarBJTUUc",
     authDomain: "train-schedules-db156.firebaseapp.com",
@@ -12,11 +12,11 @@ $(document).ready(function() {
   };
   firebase.initializeApp(config);
 
-// Create a variable to reference the database
+  // Create a variable to reference the database
   var database = firebase.database();
 
-// make a table in firebase when new data is added
-database.ref("/trainData").on("child_added", function (snap) {
+  // make a table in firebase when new data is added
+  database.ref("/trainData").on("child_added", function (snap) {
 
   console.log(snap.val());
  
@@ -60,7 +60,6 @@ $("#add-destination").on("click", function(event) {
   $("#time-input").val("");
   $("#frequency-input").val("");
 
-  
   // time calculations
   // var firstTrainConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
   var firstTrainConverted = moment(firstTrain, "hh:mm");
@@ -86,9 +85,7 @@ $("#add-destination").on("click", function(event) {
   console.log("next arrival");
   console.log(nextArrivalTime.format("hh:mm"));
 
-  // $("#schedules > tbody" ).append("<tr><td>" + nameInput + "</td><td>" + nextArrivalTime + "</td></tr>");
-
-});
+  });
 });
 
 
